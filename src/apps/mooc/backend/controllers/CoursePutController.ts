@@ -8,3 +8,4 @@ export class CoursePutController implements Controller {
 		res.status(httpStatus.CREATED).send();
 	}
 }
+ 
