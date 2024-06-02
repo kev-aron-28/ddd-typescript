@@ -31,6 +31,7 @@ export class Server {
 		registerRoutes(router);
 
 		router.use((err: Error, req: Request, res: Response, _next: () => void) => {
+			// eslint-disable-next-line no-console
 			console.log(err);
 			res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
 		});
@@ -40,9 +41,11 @@ export class Server {
 		return new Promise(resolve => {
 			const env = this.express.get('env') as string;
 			this.httpServer = this.express.listen(this.port, () => {
+				// eslint-disable-next-line no-console
 				console.log(
 					`  Mock Backend App is running at http://localhost:${this.port} in ${env} mode`
 				);
+				// eslint-disable-next-line no-console
 				console.log('  Press CTRL-C to stop\n');
 				resolve();
 			});

@@ -7,5 +7,9 @@ export const register = (router: Router): void => {
 	const coursePutController = container.get<CoursePutController>(
 		'Apps.mooc.controllers.CoursePutController'
 	);
-	router.put('/courses/:id', (req: Request, res: Response) => coursePutController.run(req, res));
+	router.put(
+		'/courses/:id',
+		// eslint-disable-next-line @typescript-eslint/no-misused-promises
+		async (req: Request, res: Response) => await coursePutController.run(req, res)
+	);
 };

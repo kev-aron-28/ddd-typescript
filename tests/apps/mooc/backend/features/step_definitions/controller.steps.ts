@@ -28,9 +28,9 @@ Then('the response should be empty', () => {
 
 BeforeAll(() => {
 	application = new MoocBackendApp();
-	application.start();
+	void application.start();
 });
 
 AfterAll(() => {
-	application.stop();
+	void application.stop();
 });
